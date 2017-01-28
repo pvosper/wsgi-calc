@@ -26,19 +26,14 @@ If you don't want to use regex, try something like this
 
 """
 
-# import datetime
-# import os
-#
-# default = "No Value Set"
-# today = datetime.date.today()
-
 html_text = """<html>
 <head>
 <title>WSGI Calulator (Session 03 Homework)</title>
 </head>
 <body>
 <p>Path Info: {print_path_info} Entries: {print_no_entries}</p>
-<p>Operation: {print_operation} First Operand: {print_operand_1} Second Operand: {print_operand_2}</p>
+<p>Operation: {print_operation} First Operand: {print_operand_1}
+Second Operand: {print_operand_2}</p>
 <h1>Result: {print_result}</h3>
 <hr>
 <h3>Examples</h3>
@@ -47,6 +42,7 @@ html_text = """<html>
 <p><a href="http://localhost:8080/divide/6/0">divide/6/0</a></p>
 </body>
 </html>"""
+
 
 def application(environ, start_response):
     headers = [("Content-type", "text/html")]
@@ -65,21 +61,14 @@ def application(environ, start_response):
             result = int(args[1]) - int(args[2])
         else:
             result = "failer"
-        # if len(arg) < 5:
-        #     raise Exception
-        # operation = args[3]
-        # if operation is "multiply":
-        #     result = args[4] * args[5]
         body = html_text.format(
-            print_path_info = path_info,
-            print_no_entries = len(args),
-            print_operation = args[0],
-            print_operand_1 = args[1],
-            print_operand_2 = args[2],
-            print_result = result
+            print_path_info=path_info,
+            print_no_entries=len(args),
+            print_operation=args[0],
+            print_operand_1=args[1],
+            print_operand_2=args[2],
+            print_result=result
         )
-        # func, args = resolve_path(path)
-        # body = func(*args)
         status = "200 OK"
     except NameError:
         status = "404 Not Found"
