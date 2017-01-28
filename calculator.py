@@ -39,7 +39,12 @@ html_text = """<html>
 <body>
 <p>Path Info: {print_path_info} Entries: {print_no_entries}</p>
 <p>Operation: {print_operation} First Operand: {print_operand_1} Second Operand: {print_operand_2}</p>
-<p>Result: {print_result}
+<h1>Result: {print_result}</h3>
+<hr>
+<h3>Examples</h3>
+<p><a href="http://localhost:8080/multiply/3/5">multiply/3/5</a></p>
+<p><a href="http://localhost:8080/add/23/42">add/23/42</a></p>
+<p><a href="http://localhost:8080/divide/6/0">divide/6/0</a></p>
 </body>
 </html>"""
 
